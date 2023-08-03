@@ -35,6 +35,11 @@ public class WeightedGraph {
       vNeighbors.add(Map.entry(w, weight));
   }
 
+  public void addUndirectedEdge(int v, int w, int weight) {
+    addEdge(v, w, weight);
+    addEdge(w, v, weight);
+  }
+
   /**
    * 
    * @return number of vertices in the graph.
@@ -61,7 +66,7 @@ public class WeightedGraph {
    * @param v vertex
    * @return adjacent vertices to v including the weight of edges.
    */
-  Iterable<Map.Entry<Integer, Integer>> adj(int v) {
+  public Iterable<Map.Entry<Integer, Integer>> adj(int v) {
     return this.graph.get(v);
   }
 }
