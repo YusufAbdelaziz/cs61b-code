@@ -6,6 +6,8 @@ public class Runner {
   public static void main(String[] args) {
 
     /// Check Lecture 24 - Prim's graph.
+    /// Kruskal's graph is the same except that 3 - 4 edge's weight is 3
+    /// instead of 2
 
     var weightedGraph = new WeightedGraph(7, false);
 
@@ -19,8 +21,8 @@ public class Runner {
     weightedGraph.addUndirectedEdge(2, 5, 15);
     weightedGraph.addUndirectedEdge(2, 4, 1);
 
-    // weightedGraph.addUndirectedEdge(3, 4, 2);
-    weightedGraph.addUndirectedEdge(3, 4, 3);
+    weightedGraph.addUndirectedEdge(3, 4, 2);
+    // weightedGraph.addUndirectedEdge(3, 4, 3);
 
     weightedGraph.addUndirectedEdge(4, 5, 4);
     weightedGraph.addUndirectedEdge(4, 6, 3);
@@ -28,8 +30,8 @@ public class Runner {
     weightedGraph.addUndirectedEdge(6, 5, 1);
     weightedGraph.addUndirectedEdge(6, 3, 1);
 
-    // var prim = new PrimAlgorithm(weightedGraph);
-    // System.out.println("Prim's Algorithm -> " + prim.findMST());
+    var prim = new PrimAlgorithm(weightedGraph);
+    System.out.println("Prim's Algorithm -> " + prim.findMST() + " and total cost is " + prim.mstTotalCost());
 
     // ---------------------------------------------------------
 

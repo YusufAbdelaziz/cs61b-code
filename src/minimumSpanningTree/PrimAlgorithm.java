@@ -1,7 +1,6 @@
 package minimumSpanningTree;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -13,14 +12,17 @@ import shortestPaths.WeightedGraph;
  */
 public class PrimAlgorithm {
   private WeightedGraph g;
+  private int[] distTo;
+  private int[] edgeTo;
+  List<Integer> mst = new ArrayList<>();
 
   public PrimAlgorithm(WeightedGraph g) {
     this.g = g;
+    distTo = new int[g.V()];
+    edgeTo = new int[g.V()];
   }
 
-  public List<Integer> findMST() {
-    int[] distTo = new int[g.V()];
-    int[] edgeTo = new int[g.V()];
+  public ArrayList<Map.Entry<Integer, Integer>> findMST() {
     boolean[] marked = new boolean[g.V()];
 
     // V is the randomly picked start vertex. You can use any other vertex.
@@ -68,13 +70,24 @@ public class PrimAlgorithm {
         }
       }
     }
-    List<Integer> path = new ArrayList<>();
 
     for (int i = 0; i < edgeTo.length; i++) {
       if (i != v) {
-        path.add(edgeTo[i]);
+        mst.add(edgeTo[i]);
       }
     }
-    return path;
+    var list = new ArrayList<Map.Entry<Integer, Integer>>();
+    for (int i = 1; i <= mst.size(); i++) {
+      list.add(Map.entry(mst.get(i - 1), i));
+    }
+    return list;
+  }
+
+  public int mstTotalCost() {
+    int cost = 0;
+    for (int i : distTo) {
+      cost += i;
+    }
+    return cost;
   }
 }
