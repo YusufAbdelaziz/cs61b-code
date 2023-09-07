@@ -18,5 +18,8 @@ public class Runner {
 
     InsertionSort insertionSort = new InsertionSort(Arrays.copyOf(arr, arr.length));
     System.out.println("InsertionSort  -> " + Arrays.toString(insertionSort.sort()));
+
+    QuickSort quickSort = new QuickSort(Arrays.copyOf(arr, arr.length));
+    System.out.println("QuickSort  -> " + Arrays.toString(quickSort.sort()));
   }
 }
