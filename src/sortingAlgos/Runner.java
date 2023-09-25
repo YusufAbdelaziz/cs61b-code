@@ -21,5 +21,11 @@ public class Runner {
 
     QuickSort quickSort = new QuickSort(Arrays.copyOf(arr, arr.length));
     System.out.println("QuickSort  -> " + Arrays.toString(quickSort.sort()));
+
+    CountingSort countingSort = new CountingSort(Arrays.copyOf(arr, arr.length));
+    System.out.println("CountingSort  -> " + Arrays.toString(countingSort.sort()));
+
+    RadixSort radixSort = new RadixSort(new int[] { 121, 432, 564, 23, 1, 45, 788 });
+    System.out.println("RadixSort  -> " + Arrays.toString(radixSort.sort()));
   }
 }
